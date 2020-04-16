@@ -1,0 +1,25 @@
+
+server:
+  port: 8080
+
+swagger:
+  enabled: true
+  title: 开发文档
+  version: ${spring.application.version}
+  description: 开发文档
+  exclude-path: /error,/actuator/**
+  contact:
+    name: CoderLG
+    email: im.lg@qq.com
+  authorization:
+    name: 认证头
+    key-name: Authorization
+
+stand-alone: true
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.4.46:28761/eureka/

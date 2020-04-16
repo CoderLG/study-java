@@ -1,0 +1,44 @@
+
+server:
+  port: 28761
+
+
+spring:
+  application:
+    name: eureka-server
+    version: ${random.long}
+
+
+###注册中心ip地址 127.0.0.1 或者localhost
+eureka:
+  instance:
+    hostname: 127.0.0.1
+#注册地址
+  client:
+    serviceUrl:
+     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#因为自己是注册中心，是否需要将自己注册给自己的注册中心（集群的时候是需要是为true）
+#由于该应用为注册中心,所以设置为false,代表不向注册中心注册自己
+    register-with-eureka: false
+
+ #因为自己是注册中心， 不需要去检索服务信息
+    fetch-registry: false
+
+#关闭eureka的自我抱回
+  server:
+    enable-self-preservation: false
+
+
+swagger:
+  enabled: true
+  title: 开发文档
+  version: ${spring.application.version}
+  description: 开发文档
+  exclude-path: /error,/actuator/**
+  contact:
+    name: CoderLG
+    email: im.lg@qq.com
+  authorization:
+    name: 认证头
+    key-name: Authorization

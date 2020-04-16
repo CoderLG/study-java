@@ -1,0 +1,89 @@
+
+170000
+
+limit	offset		read		save
+10000 	10000000 	24115 		2261
+100000  10000000	24423		15415
+140000  10000000	24931		20390
+150000  10000000	23780	    23485
+200000  10000000	25296		32017
+
+
+42960bf8-c88b-4d02-8ec1-c4687838b5f4
+
+
+{
+  "DMBS": "42960bf8-c88b-4d02-8ec1-c4687838b5f4",
+  "DMCJBM": 0,
+  "DMMC": "唐家弯",
+  "WZ": "0101000020E6100000342E1C08C91F5B402A00C633685C3D40",
+  "wzGeoPoint": {
+    "lat": 45,
+    "lon": 123,
+    "geohash": "y8p2nbjb58p2",
+    "fragment": true
+  },
+  "MS": "中国村级地名",
+  "DLBM": 1300054320013129,
+  "DMMCCD": 3,
+  "DMJP": "tjw",
+  "DMQP": null,
+  "DMBM": null,
+  "BDY": null,
+  "YWMC": null,
+  "DMDZ": "重庆市重庆市彭水苗族土家族自治县",
+  "DMGC": null,
+  "LV": 13,
+  "DESC": null
+}
+
+[
+  {
+    "DMBS": "8b928be7-ce59-4702-b853-5bc59de7ad23",
+    "DMCJBM": 0,
+    "DMMC": "卿慕咖啡馆",
+    "WZ": "0101000020E61000009DBCC804FC6F5C403A9677D503FE3640",
+    "wzGeoPoint": {
+      "lat": 22.992246,
+      "lon": 113.749757,
+      "geohash": "ws0fu3w593q3",
+      "fragment": true
+    },
+    "MS": "其他设施1",
+    "DLBM": 1500205690053475,
+    "DMMCCD": 5,
+    "DMJP": "qmkfg",
+    "DMQP": "",
+    "DMBM": null,
+    "BDY": null,
+    "YWMC": null,
+    "DMDZ": "广东省东莞市",
+    "DMGC": null,
+    "LV": 15,
+    "DESC": null
+  },
+  {
+    "DMBS": "5e4a4579-161c-455e-95d4-d536f2fa910c",
+    "DMCJBM": 0,
+    "DMMC": "三盈",
+    "WZ": "0101000020E6100000828C800A47745C407B8505F703FE3640",
+    "wzGeoPoint": {
+      "lat": 22.992248,
+      "lon": 113.816836,
+      "geohash": "ws0fvcwgs98j",
+      "fragment": true
+    },
+    "MS": "其他设施1",
+    "DLBM": 1500205690053487,
+    "DMMCCD": 2,
+    "DMJP": "sy",
+    "DMQP": "",
+    "DMBM": null,
+    "BDY": null,
+    "YWMC": null,
+    "DMDZ": "广东省东莞市",
+    "DMGC": null,
+    "LV": 15,
+    "DESC": null
+  }
+]

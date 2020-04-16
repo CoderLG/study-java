@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    master:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://192.168.4.46:5431/lg
+      username: postgres
+      password: postgres
+    slave:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://192.168.4.46:5431/gang
+      username: postgres
+      password: postgres
+    third:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://192.168.4.46:5431/gg
+      username: postgres
+      password: postgres
+
+  jpa:
+      hibernate:
+        ddl-auto: update

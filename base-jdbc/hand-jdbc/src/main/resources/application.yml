@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+#spring:
+#  main:
+#    allow-bean-definition-overriding: true
+
+swagger:
+  enabled: true
+  title: 开发文档
+  version: ${spring.application.version}
+  description: 开发文档
+  exclude-path: /error,/actuator/**
+  contact:
+    name: CoderLG
+    email: im.lg@qq.com
+
+Url: jdbc:postgresql://192.168.4.38:5431/gv_place
+Driver: org.postgresql.Driver
+PgUsername: postgres
+Password: postgres

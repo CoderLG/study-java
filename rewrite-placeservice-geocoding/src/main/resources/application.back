@@ -1,0 +1,82 @@
+﻿server:
+  port: 8150
+
+spring:
+  rabbitmq:
+    host: ${rabbitmq_host}
+    port: ${rabbitmq_port}
+    username: ${rabbitmq_username}
+    password: ${rabbitmq_password}
+  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://192.168.4.17:4444/gv_placeservice
+#    username: ${pg_username}
+#    password: ${pg_password}
+
+     driver-class-name: org.postgresql.Driver
+     url: jdbc:postgresql://${pg_host}:${pg_port}/gv_place
+     username: ${pg_username}
+     password: ${pg_password}
+#  data:
+#    elasticsearch:
+#      cluster-name: place_name
+#      cluster-nodes: 192.168.4.17:9301
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect    #与jts_geometry相关
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+
+  redis:
+    database: 14
+    host: ${redis_host}
+    password: ${redis_password}
+    username: ${redis_username}
+    port: ${redis_port}
+    lettuce:
+      pool:
+        max-active: 100
+        max-wait: 5000ms
+        min-idle: 10
+        max-idle: 10
+
+
+cache:
+  default:
+    expire-time: 20000
+  user:
+    expire-time: 18000
+    name: test
+
+auth:
+  serviceId: auth
+  user:
+    token-header: Authorization
+  client:
+    id: webmanager
+    secret: 123456
+    token-header: x-client-token
+
+swagger:
+    enabled: true
+    title: 二次开发文档
+    version: 1.1.2
+    description: 二次开发接口
+    contact:
+        name: im.lg@qq.com
+    exclude-path: /error,/actuator/**
+    authorization:
+      name: 认证头
+      key-name: Authorization
+
+#Url: jdbc:postgresql://${pg_host}:${pg_port}/gv_place
+#PgUsername: ${pg_username}
+#Password:  ${pg_password}
+
+

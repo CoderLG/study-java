@@ -1,0 +1,21 @@
+﻿server:
+  port: 8080
+
+
+
+Url: jdbc:postgresql://192.168.4.17:5431/optimize_place
+PgUsername: postgres
+Password:  postgres
+
+
+swagger:
+    enabled: true
+    title: 二次开发文档
+    version: 1.1.2
+    description: 二次开发接口
+    contact:
+        name: im.lg@qq.com
+    exclude-path: /error,/actuator/**
+    authorization:
+      name: 认证头
+      key-name: Authorization

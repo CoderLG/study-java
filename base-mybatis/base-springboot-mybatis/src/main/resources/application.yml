@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+#spring:
+#  datasource:
+#      driver-class-name: org.postgresql.Driver
+#      url: jdbc:postgresql://192.168.4.38:5431/gv_place
+#      username: postgres
+#      password: postgres
+#  jpa:
+#      hibernate:
+#        ddl-auto: update
+#      properties:
+#        hibernate:
+#          temp:
+#            use_jdbc_metadata_defaults: false
+#      show-sql: true
+#  application:
+#      name: JDBC
+#      version:  V0.1_2019
+#      file-dir:
+
+spring:
+  datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.4.226:3306/vxpay?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+      username: root
+      password: 123456
+      #com.zaxxer.hikari.HikariDataSource 默认是这个数据源
+      #type: com.alibaba.druid.pool.DruidDataSource
+  application:
+      name: vxpay
+      version:  V0.1_2019
+      file-dir:
+
+swagger:
+  enabled: true
+  title: 开发文档
+  version: ${random.long}
+  description: 开发文档
+  exclude-path: /error,/actuator/**
+  contact:
+    name: CoderLG
+    email: im.lg@qq.com
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

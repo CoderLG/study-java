@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+  datasource:
+    primary:
+      driverClassName: org.postgresql.Driver
+      jdbcUrl: jdbc:postgresql://192.168.4.46:5431/gang
+      username: postgres
+      password: postgres
+    secondary:
+      driverClassName: org.postgresql.Driver
+      jdbcUrl: jdbc:postgresql://192.168.4.46:5431/lg
+      username: postgres
+      password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    show-sql: true
+
+    atomikos:
+      datasource:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+      connectionfactory:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+
+
+swagger:
+  enabled: true
+  title: 开发文档
+  version: ${spring.application.version}
+  description: 开发文档
+  exclude-path: /error,/actuator/**
+  contact:
+    name: CoderLG
+    email: im.lg@qq.com
