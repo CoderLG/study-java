@@ -1,7 +1,7 @@
 package lg.controller;
 
 import io.swagger.annotations.Api;
-import lg.common.RestError;
+import lg.exception.RestError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

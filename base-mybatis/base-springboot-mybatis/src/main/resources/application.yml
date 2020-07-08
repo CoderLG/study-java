@@ -23,7 +23,7 @@ server:
 spring:
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://192.168.4.226:3306/vxpay?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+      url: jdbc:mysql://192.168.4.46:3306/gang?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
       username: root
       password: 123456
       #com.zaxxer.hikari.HikariDataSource 默认是这个数据源

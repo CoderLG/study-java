@@ -1,11 +1,9 @@
 package lg.controller;
 
 import io.swagger.annotations.Api;
-import lg.common.RestError;
+import lg.exception.RestError;
 import lg.dvo.ImageParamsVo;
-import lg.exception.CommonException;
-import lg.exception.GeoException;
-import lg.exception.ImageException;
+import lg.exception.RestException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,14 +31,13 @@ public class ExceptionController {
     @GetMapping("/demo/")
     public ResponseEntity<ImageParamsVo> sayHello(@Valid ImageParamsVo imageParamsVo) {
         if (imageParamsVo.getGeo().equals("123")) {
-            throw new GeoException();
+            throw new RestException(RestError.UNKNOW_ERROR);
         } else if(imageParamsVo.getGeo().equals("456")){
-            throw new ImageException(RestError.INPUT_ERROR.getCode(),RestError.INPUT_ERROR.getMessage());
+            throw new RestException(RestError.INPUT_ERROR);
         }else if(imageParamsVo.getGeo().equals("789")){
            //自己分风格的异常处理
-            CommonException commonException = new CommonException(RestError.INPUT_ERROR.toString());
-            log.error("自己异常的处理方法",commonException);
-            throw commonException;
+            log.error("自己异常的处理方法");
+            throw new RestException(RestError.INPUT_ERROR);
         }else{
             return ResponseEntity.ok(imageParamsVo);
         }

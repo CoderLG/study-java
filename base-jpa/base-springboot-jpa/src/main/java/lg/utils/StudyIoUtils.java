@@ -1,8 +1,11 @@
 package lg.utils;
 
+import com.alibaba.fastjson.JSON;
+import lg.domain.TsTrackPoint;
 import lombok.extern.slf4j.Slf4j;
 import org.xnio.streams.BufferPipeOutputStream;
 
+import javax.sound.midi.Soundbank;
 import java.io.*;
 
 /**
@@ -24,7 +27,36 @@ import java.io.*;
  */
 @Slf4j
 public class StudyIoUtils {
+/**
+ * 一行一行的读文件
+ */
+public static void readFile(){
+    String path = "D:\\2017-10-03_sorted.dat";
+    File file = new File(path);
+    StringBuilder result = new StringBuilder();
+    try{
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));//构造一个BufferedReader类来读取文件
 
+        String s = null;
+        while((s = br.readLine())!=null){//使用readLine方法，一次读一行
+//            result.append( System.lineSeparator() + s);
+            TsTrackPoint tsTrackPoint = JSON.parseObject(s, TsTrackPoint.class);
+
+            String temp = "";
+            for (int i = 0; i < tsTrackPoint.getMbmc().length() - 2; i++) {
+                temp= temp+"*";
+            }
+            String newName = tsTrackPoint.getMbmc().substring(0, 1) + temp + tsTrackPoint.getMbmc().substring(tsTrackPoint.getMbmc().length() - 1, tsTrackPoint.getMbmc().length());
+            tsTrackPoint.setMbmc(newName);
+            String parse = JSON.toJSONString(tsTrackPoint) + "\n";
+            bufferWriteFile(parse);
+        }
+        br.close();
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+//    return result.toString();
+}
 
     /**
      * 学习读文件
@@ -35,7 +67,7 @@ public class StudyIoUtils {
      * utf-8 中文占三个字节
      */
     public static void byteReadFile() throws Exception {
-        String path = "F:\\burning\\coding\\java\\base-jpa\\base-springboot-jpa\\file-service\\upload\\1583301493454\\f.txt";
+        String path = "D:\\2017-10-03_sorted.dat";
         File file = new File(path);
         FileInputStream fileInputStream = new FileInputStream(file);
         int read = fileInputStream.read();
@@ -78,17 +110,17 @@ public class StudyIoUtils {
      *
      */
 
-    public static void byteWriteFile() throws Exception {
-        String path = "F:\\burning\\coding\\java\\base-jpa\\base-springboot-jpa\\file-service\\upload\\1583301493454\\n.txt";
+    public static void byteWriteFile(String content) throws Exception {
+        String path = "D:\\n.bat";
         File file = new File(path);
         //true 为追加写的意思 ，反之
         FileOutputStream fileOutputStream = new FileOutputStream(file,true);
 
-        String content = "123asd你好";
         byte[] bytes = content.getBytes();
         for (byte aByte : bytes) {
             fileOutputStream.write(aByte);
         }
+
         fileOutputStream.close();
     }
 
@@ -97,17 +129,15 @@ public class StudyIoUtils {
      *直接写入一个字节数组
      */
 
-    public static void bufferWriteFile() throws Exception {
+    public static void bufferWriteFile(String content) throws Exception {
 
-        String path = "F:\\burning\\coding\\java\\base-jpa\\base-springboot-jpa\\file-service\\upload\\1583301493454\\n.txt";
+        String path = "D:\\n.dat";
         File file = new File(path);
         //true 为追加写的意思 ，反之
         FileOutputStream fileOutputStream = new FileOutputStream(file,true);
-
-        String content = "123asd你好";
         byte[] bytes = content.getBytes();
-
         fileOutputStream.write(bytes);
+
         fileOutputStream.close();
     }
 

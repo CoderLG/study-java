@@ -2,6 +2,7 @@ package lg.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import lg.dao.TUserDao;
 import lg.domain.TUser;
 import lg.dvo.TUserDvo;
 import lg.service.UserService;
@@ -20,6 +21,11 @@ import java.util.List;
 @RequestMapping("/user")
 @Slf4j
 public class UserController {
+
+
+
+    @Autowired
+    private TUserDao userDao;
 
 
     @Autowired
@@ -43,6 +49,14 @@ public class UserController {
         System.out.println(all.size());
         return all;
     }
+
+    @GetMapping("queryNameById")
+    public Object queryNameById(Long id){
+       TUser tUsers = userDao.queryNameById(id);
+        return tUsers;
+    }
+
+
 
     @GetMapping("findById")
     public TUser findById(@RequestParam Long id){

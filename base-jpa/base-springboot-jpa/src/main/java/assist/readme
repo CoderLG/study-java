@@ -1,0 +1,3 @@
+配套eureka
+调用命令
+     nohup java -jar eureka-1.0-SNAPSHOT.jar > log  &

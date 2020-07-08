@@ -39,4 +39,14 @@ public class StudyIoUtilsTest {
     public void byteWriteFile() throws Exception {
 
     }
+
+    @Test
+    public void byteReadFile1() {
+
+        try {
+            StudyIoUtils.readFile();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

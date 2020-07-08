@@ -23,6 +23,9 @@ public class BaseConfig {
     private String version;
     private String name;
 
+    @Value("${number}")
+    private String number;
+
     // 一
     static {
         System.out.println("静态0");

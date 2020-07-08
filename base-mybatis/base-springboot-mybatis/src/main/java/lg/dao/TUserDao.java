@@ -17,6 +17,8 @@ public interface TUserDao {
     @Options(useGeneratedKeys = true,keyProperty = "tId",keyColumn = "t_id")    //获得自增id
     int save(TUser tUser);
 
+    @Select("select t_name from t_user where t_id = #{id}")
+    TUser queryNameById(Long id);
 
     @Select("select * from t_user")
     List<TUser> findAll();
